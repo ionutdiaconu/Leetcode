@@ -11,15 +11,35 @@ namespace Test
         {
             Solution s = new Solution();
 
-            //ListNode l1 = new ListNode(9);
-            //ListNode l2 = new ListNode(1, new ListNode(9));
+            
+            {
+                ListNode l1 = new ListNode(9);
+                ListNode l2 = new ListNode(1, new ListNode(9));
 
-            ListNode l1 = new ListNode(5);
-            ListNode l2 = new ListNode(7, new ListNode(4));
+                ListNode result = s.AddTwoNumbers(l1, l2);
+                string resultValue = result.next.next.val + "" + result.next.val + "" + result.val;
 
-            ListNode result = s.AddTwoNumbers(l1, l2);
+                if (!"100".Equals(resultValue))
+                {
+                    Console.WriteLine("bad solution!");
+                }
+                Console.WriteLine("9 + 91 = " + resultValue);
+            }
 
-            Console.WriteLine("Result: {0}", result);
+
+            {
+                ListNode l1 = new ListNode(5);
+                ListNode l2 = new ListNode(7, new ListNode(4));
+                ListNode result = s.AddTwoNumbers(l1, l2);
+                string resultValue = result.next.val + "" + result.val;
+
+
+                if (!"52".Equals(resultValue))
+                {
+                    Console.WriteLine("bad solution!");
+                }
+                Console.WriteLine("5 + 47 = " + resultValue);
+            }
         }
 
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
